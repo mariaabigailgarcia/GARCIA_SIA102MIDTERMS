@@ -1,0 +1,66 @@
+﻿@using GARCIA_SIA102Midterms.DTOs
+@model TitleCreateDto
+
+<h2>Create New Title</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Type"></label>
+        <input asp-for="Type" class="form-control" />
+        <span asp-validation-for="Type" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PubId">Publisher</label>
+        <select asp-for="PubId" class="form-control" asp-items="@(new SelectList(ViewBag.Publishers, "PubId", "PubName"))">
+            <option value="">-- Select Publisher --</option>
+        </select>
+        <span asp-validation-for="PubId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Advance"></label>
+        <input asp-for="Advance" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Royalty"></label>
+        <input asp-for="Royalty" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="YtdSales"></label>
+        <input asp-for="YtdSales" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Notes"></label>
+        <textarea asp-for="Notes" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Pubdate"></label>
+        <input asp-for="Pubdate" class="form-control" type="date" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -13,8 +13,8 @@ builder.Services.AddDbContext<pubsContext>(options =>
 
 // Register repositories (example for Authors)
 builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
-//builder.Services.AddScoped<ITitleRepository, TitleRepository>();
-//builder.Services.AddScoped<IPublisherRepository, PublisherRepository>();
+builder.Services.AddScoped<ITitleRepository, TitleRepository>();
+builder.Services.AddScoped<IPublisherRepository, PublisherRepository>();
 
 var app = builder.Build();
 
