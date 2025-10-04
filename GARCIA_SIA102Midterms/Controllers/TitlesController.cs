@@ -2,6 +2,7 @@
 using GARCIA_SIA102Midterms.Models;
 using GARCIA_SIA102Midterms.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace GARCIA_SIA102Midterms.Controllers
 {
