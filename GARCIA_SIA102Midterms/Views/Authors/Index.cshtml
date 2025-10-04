@@ -1,0 +1,44 @@
+﻿@using GARCIA_SIA102Midterms.DTOs
+@model IEnumerable<AuthorReadDto>
+
+<h2>Authors</h2>
+
+<!-- Success message -->
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>City</th>
+            <th>State</th>
+            <th style="width:150px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var author in Model)
+        {
+            <tr>
+                <td>@author.AuId</td>
+                <td>@author.FullName</td>
+                <td>@author.City</td>
+                <td>@author.State</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@author.AuId" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@author.AuId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

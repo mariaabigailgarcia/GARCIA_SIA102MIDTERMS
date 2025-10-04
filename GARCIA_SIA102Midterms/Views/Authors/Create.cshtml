@@ -1,0 +1,60 @@
+﻿@using GARCIA_SIA102Midterms.DTOs
+@model AuthorCreateDto
+
+<h2>Create Author</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="AuFname"></label>
+        <input asp-for="AuFname" class="form-control" />
+        <span asp-validation-for="AuFname" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AuLname"></label>
+        <input asp-for="AuLname" class="form-control" />
+        <span asp-validation-for="AuLname" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Phone"></label>
+        <input asp-for="Phone" class="form-control" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="City"></label>
+        <input asp-for="City" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="State"></label>
+        <input asp-for="State" class="form-control" />
+        <span asp-validation-for="State" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Zip"></label>
+        <input asp-for="Zip" class="form-control" />
+        <span asp-validation-for="Zip" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Contract"></label>
+        <input asp-for="Contract" type="checkbox" class="form-check-input" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
